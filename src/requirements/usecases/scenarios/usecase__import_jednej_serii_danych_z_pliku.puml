@@ -3,6 +3,8 @@ skinparam DefaultTextAlignment center
 skinparam WrapWidth 220
 skinparam SwimlaneWidth 300
 
+title Przypadek użycia 'Import jednej serii danych z pliku'
+
 |e| Edytor danych
 |s| System
 

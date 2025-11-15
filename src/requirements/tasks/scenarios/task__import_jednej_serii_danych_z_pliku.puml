@@ -3,6 +3,8 @@ skinparam DefaultTextAlignment center
 skinparam WrapWidth 195
 skinparam SwimlaneWidth 300
 
+title Zadanie 'Import jednej serii dancyh z pliku'
+
 |e| Edytor danych
 |s| -
 

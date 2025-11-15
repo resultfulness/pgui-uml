@@ -2,6 +2,8 @@
 hide footbox
 autoactivate on
 
+title Interakcja 'Import jednej serii danych z pliku'
+
 actor "Edytor danych" as e
 participant "Zakładka edycji danych" as tab
 participant "Tabela danych" as table

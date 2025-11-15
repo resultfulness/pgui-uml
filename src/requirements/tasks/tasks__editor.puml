@@ -1,6 +1,8 @@
 @startuml
 left to right direction
 
+title Zadania edytora danych
+
 actor "Edytor danych" as editor
 
 editor -- (Dodanie lub wstawienie nowej serii danych)

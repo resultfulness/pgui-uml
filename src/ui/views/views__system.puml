@@ -3,6 +3,8 @@ skinparam classAttributeIconSize 0
 hide empty members
 hide circle
 
+title Widoki systemowe
+
 class "Okno główne" as main_window {
     +void zamknij()
 }

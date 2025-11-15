@@ -3,6 +3,8 @@ skinparam classAttributeIconSize 0
 hide empty members
 hide circle
 
+title Obiekty domeny
+
 class Dane {
     +int serie
     -int liczba_serii

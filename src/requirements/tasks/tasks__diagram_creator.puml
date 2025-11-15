@@ -1,6 +1,8 @@
 @startuml
 left to right direction
 
+title Zadania przygotowującego wykres
+
 actor "Przygotowujący wykres" as diagram_creator
 
 diagram_creator -- (Utworzenie wykresu słupkowego)

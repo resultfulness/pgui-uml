@@ -3,6 +3,8 @@ skinparam classAttributeIconSize 0
 hide empty members
 hide circle
 
+title Widoki edycji danych
+
 class "Zakładka edycji danych" as data_tab {
 }
 

@@ -1,4 +1,6 @@
 @startuml
+title Aktorzy
+
 actor "Edytor danych" as editor
 actor "Przygotowujący wykres" as diagram_creator
 actor "Analityk danych" as analyst
