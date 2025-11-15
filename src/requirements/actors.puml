@@ -1,0 +1,12 @@
+@startuml
+actor "Edytor danych" as editor
+actor "Przygotowujący wykres" as diagram_creator
+actor "Analityk danych" as analyst
+actor "Księgowa" as accountant
+actor "Sprzedawca" as seller
+
+accountant --|> editor
+analyst --|> editor
+analyst --|> diagram_creator
+seller --|> diagram_creator
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+left to right direction
+
+actor "Edytor danych" as editor
+
+editor -- (Dodanie lub wstawienie nowej serii danych)
+editor -- (Dodanie lub wstawienie wartości do istniejącej serii danych)
+editor -- (Usunięcie serii danych)
+editor -- (Import jednej serii danych z pliku)
+editor -- (Eksport jednej serii danych do pliku)
+editor -- (Zmiana wprowadzonych danych)
+editor -- (Import serii danych ze schowka systemowego)
+@enduml

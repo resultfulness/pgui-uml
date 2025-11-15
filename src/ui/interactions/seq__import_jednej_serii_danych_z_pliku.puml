@@ -1,0 +1,56 @@
+@startuml
+hide footbox
+autoactivate on
+
+actor "Edytor danych" as e
+participant "Zakładka edycji danych" as tab
+participant "Tabela danych" as table
+participant "Kolumna nagłówka" as theader
+participant "Okno wyboru źródła danych" as data_inputchoice_win
+participant "Okno dialogowe wyboru pliku" as file_selector_win
+participant "Okno z podglądem danych" as data_preview_win
+participant Dane as data
+
+activate e
+
+e -> tab : wyświetl()
+return
+
+e -> table : dodajNowąSerię()
+table -> data : dodajNowąSerię()
+return
+return
+
+e -> theader : wstawDane()
+theader -> data_inputchoice_win : wyświetl()
+deactivate theader
+data_inputchoice_win --> e
+
+e -> data_inputchoice_win : daneZPliku()
+data_inputchoice_win -> file_selector_win : wyświetl()
+deactivate data_inputchoice_win
+file_selector_win --> e
+
+e -> file_selector_win : wybierzPlik()
+file_selector_win --> data_inputchoice_win
+activate data_inputchoice_win
+
+data_inputchoice_win -> data_inputchoice_win : weryfikujPoprawnośćPliku()
+deactivate data_inputchoice_win
+
+alt dane poprawne
+    data_inputchoice_win -> data_preview_win : wyświetl()
+    deactivate data_inputchoice_win
+    data_preview_win --> e
+    e -> data_preview_win : zatwierdźZawartość()
+    data_preview_win -> data : aktualizujDaneSerii()
+    return
+    return
+else dane niepoprawne
+    data_inputchoice_win -> data_inputchoice_win : wyświetlKomunikatOBłędnychDanych()
+    deactivate data_inputchoice_win
+    data_inputchoice_win --> e
+end
+
+deactivate e
+@enduml

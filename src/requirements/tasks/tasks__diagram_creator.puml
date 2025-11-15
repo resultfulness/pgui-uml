@@ -1,0 +1,14 @@
+@startuml
+left to right direction
+
+actor "Przygotowujący wykres" as diagram_creator
+
+diagram_creator -- (Utworzenie wykresu słupkowego)
+diagram_creator -- (Utworzenie wykresu kołowego)
+diagram_creator -- (Utworzenie wykresu liniowego)
+diagram_creator -- (Dostosowanie kolorystyki wykresu)
+diagram_creator -- (Dostosowanie wyglądu legendy)
+diagram_creator -- (Dostosowanie umiejscowienia legendy)
+diagram_creator -- (Wygenerowanie obrazka do pliku)
+diagram_creator -- (Wydrukowanie wykresu)
+@enduml

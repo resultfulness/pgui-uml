@@ -1,0 +1,59 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide empty members
+hide circle
+
+class "Zakładka edycji danych" as data_tab {
+}
+
+class "Tabela danych" as data_table {
+    +void dodajWiersz()
+    +void dodajNowąSerię()
+}
+
+class "Kolumna nagłówka" as header_column {
+    +string etykieta
+    +int indeks_koloru
+
+    +void wstawPrzed()
+    +void wstawZa()
+    +void ustawLiczbęDanych()
+    +void wstawDane()
+}
+
+class "Wiersz danych" as data_row {
+    +void wstawPrzed()
+    +void wstawZa()
+}
+
+class "Wartość" as value {
+    +float wartość
+}
+
+class "Okno wyboru źródła danych" as data_inputchoice_win {
+    +void daneZPliku()
+    +void daneRęcznie()
+    +void daneZeSchowka()
+    #void weryfikujPoprawnośćPliku()
+    #void wyświetlKomunikatOBłędnychDanych()
+}
+
+class "Okno z podglądem danych" as data_preview_win {
+    #int tabela_z_danymi
+    +void zatwierdźZawartość()
+}
+
+class "Okno dialogowe" as dialog {
+    +void wyświetl()
+}
+
+data_tab *-- data_table
+data_table *- header_column
+data_table *-- data_row
+data_row *- value
+
+header_column -u-> data_inputchoice_win : <<navigate>>
+
+dialog <|-l- data_inputchoice_win
+dialog <|-d- data_preview_win
+@enduml

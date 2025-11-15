@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+
+actor "Edytor danych" as editor
+
+rectangle System {
+    editor -- (Dodanie serii danych)
+    editor -- (Wstawienie serii danych)
+    editor -- (Import serii danych z pliku)
+    editor -- (Eksport serii danych do pliku)
+    editor -- (Usunięcie serii danych)
+    editor -- (Edycja istniejących wartości w danych)
+    editor -- (Import serii danych ze schowka)
+}
+@enduml

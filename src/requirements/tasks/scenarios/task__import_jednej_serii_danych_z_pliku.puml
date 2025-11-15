@@ -1,0 +1,36 @@
+@startuml
+skinparam DefaultTextAlignment center
+skinparam WrapWidth 195
+skinparam SwimlaneWidth 300
+
+|e| Edytor danych
+|s| -
+
+|e|
+start
+:[Edytor danych] uzyskuje dostęp do funkcji wprowadzania danych;
+:[Edytor danych] rozszerza zakres o jedną [serię danych];
+
+repeat
+    if ([Edytor danych] chce przerwać proces importu danych) then (tak)
+        :[Edytor danych] porzuca proces importu danych;
+        stop
+    endif
+
+    :[Edytor danych] udostępnia [plik z danymi];
+
+    |s|
+    :[Plik z danymi] jest weryfikowany pod kątem poprawności;
+    :[Plik z danymi] jest wczytywany i wyświetlany jest podgląd do weryfikacji;
+repeat while (Edytor danych obserwuje\n błąd w danych) is (tak) not (nie)
+
+|e|
+:[Edytor danych] zatwierdza poprawność;
+
+|s|
+:[Dane] są dołączane do wybranej [serii danych];
+
+|e|
+:[Edytor danych] zapoznaje się z potwierdzeniem poprawnego wczytania danych;
+stop
+@enduml

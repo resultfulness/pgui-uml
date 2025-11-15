@@ -1,0 +1,62 @@
+@startuml
+skinparam DefaultTextAlignment center
+skinparam WrapWidth 220
+skinparam SwimlaneWidth 300
+
+|e| Edytor danych
+|s| System
+
+|e|
+start
+:[Edytor danych] wyświetla [zakładkę edycji danych];
+:[Edytor danych] wybiera [opcję dodania nowej serii];
+
+|s|
+:System dodaje do zestawu nową [kolumnę danych];
+
+|e|
+if ([Edytor danych] chce przerwać proces importu danych) then (tak)
+    :[Edytor danych] usuwa [nową serię danych];
+    stop
+endif
+
+|e|
+:[Edytor danych] wybiera [opcję wstawienia danych];
+
+|s|
+:System wyświetla [okno wyboru źródła danych];
+
+|e|
+repeat
+    if ([Edytor danych] chce przerwać proces importu danych) then (tak)
+        :[Edytor danych] usuwa [nową serię danych];
+        stop
+    endif
+    :[Edytor danych] wybiera [opcję wprowadzenia danych z pliku];
+
+    |s|
+    :System wyświetla [okno dialogowe wyboru pliku];
+
+    |e|
+    :[Edytor danych] wybiera [plik];
+
+    |s|
+    :System weryfikuje poprawność [pliku];
+
+    backward:System wyświetla komunikat o błędnych danych;
+repeat while ([Plik] zawiera błędy) is (tak) not (nie)
+
+|s|
+:System wyświetla [okno z podglądem danych];
+
+|e|
+:[Edytor danych] zatwierdza zawartość;
+
+|s|
+:System wprowadza dane w miejsce [nowej serii danych];
+
+|e|
+:[Edytor danych] zapoznaje się z nowymi danymi w [nowej serii danych];
+
+stop
+@enduml

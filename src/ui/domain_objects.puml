@@ -1,0 +1,53 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide empty members
+hide circle
+
+class Dane {
+    +int serie
+    -int liczba_serii
+
+    +void dodajNowąSerię()
+    +void usuńSerię()
+    #void aktualizujDaneSerii()
+}
+
+class "Seria danych" as series {
+    +string etykieta
+    +int indeks_koloru
+    +int tablica_wartości
+    -int liczba_wartości
+
+    +void dodajWartość()
+    +void usuńWartość()
+    +void zmieńWartość()
+    +void zmieńEtykietę()
+    +void wybierzIndeksKoloru()
+}
+
+class "Plik danych" as data_file {
+    +string nazwa
+    +string katalog
+}
+class "Plik obrazu" as img_file {
+    +string nazwa
+    +string katalog
+    +string format
+    +int szerokość
+    +int wysokość
+}
+
+class Wykres {
+    +int typ_wykresu
+    +int lokalizacja_legendy
+}
+
+class Legenda {}
+
+Dane *- series
+Wykres -u-> Dane
+Wykres *- Legenda
+Legenda .u.> series
+
+img_file .u.> Wykres
+@enduml

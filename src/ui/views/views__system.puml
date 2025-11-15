@@ -1,0 +1,60 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide empty members
+hide circle
+
+class "Okno główne" as main_window {
+    +void zamknij()
+}
+
+class Menu {
+    +void plik()
+    +void edycja()
+    +void widok()
+    +void opcje()
+    +void pomoc()
+    +void wykres()
+}
+
+class "Panel kontrolny" as control_panel {
+    +int typ_wykresu
+}
+
+class "Paleta kolorów" as color_palette {
+    +int liczba_kolorów
+}
+class "Kolor w palecie" as color {
+    #int indeks
+    +RGB kolor
+}
+
+class "Szablon widoku" as view_template {
+    +void wyświetl()
+}
+
+class "Widok zakładek" as tab_view
+class "Zakładka wykresu" as chart_tab
+class "Zakładka edycji danych" as data_tab
+
+class "Okno dialogowe" as dialog {
+    +void wyświetl()
+}
+class "Okno dialogowe wyboru pliku" as file_selector_dialog {
+    +void wybierzPlik()
+}
+
+main_window *- Menu
+main_window *-- control_panel
+main_window *-- tab_view
+
+tab_view o-- chart_tab
+tab_view o-- data_tab
+
+control_panel *-- color_palette
+color_palette *-- color
+
+view_template <|-u- data_tab
+view_template <|-u- chart_tab
+
+dialog <|-- file_selector_dialog
+@enduml
